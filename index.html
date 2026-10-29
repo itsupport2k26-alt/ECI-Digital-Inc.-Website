@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDI | ECI Digital Inc.</title>
+<link rel="icon" type="image/png" href="images/logo1.png">
+  <meta name="description" content="ECI Digital Inc. is a corporate management and advisory firm delivering strategic leadership, technical guidance, and operational transformation.">
+  <meta name="theme-color" content="#101d35">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #101d35;
+      --navy-2: #172947;
+      --blue: #4268f5;
+      --blue-light: #eaf0ff;
+      --ink: #17233a;
+      --muted: #5c6980;
+      --paper: #f5f7fb;
+      --white: #fff;
+      --line: #dce3ee;
+      --shadow: 0 18px 55px rgba(16,29,53,.11);
+      --display: "Manrope", Arial, sans-serif;
+      --body: "DM Sans", Arial, sans-serif;
+      /* Replace images/bg.jpg with your own photo. Keep the image inside the images folder. */
+      --hero-image: url("images/bg.jpg");
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.7 var(--body); }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .site-header { position: fixed; z-index: 100; inset: 0 0 auto; color: white; transition: background .25s, box-shadow .25s; }
+    .site-header.scrolled { background: rgba(16,29,53,.97); box-shadow: 0 8px 30px rgba(0,0,0,.12); backdrop-filter: blur(12px); }
+    .nav { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { width: 178px; height: 60px; flex: 0 0 178px; position: relative; display: flex; align-items: center; justify-content: center; border: none; border-radius: 0; overflow: hidden; text-decoration: none; }
+    .brand-placeholder { text-align: center; font-size: 12px; line-height: 1.25; letter-spacing: .1em; font-weight: 700; }
+    .brand-placeholder strong { display: block; font: 800 23px/1 var(--display); letter-spacing: .08em; margin-bottom: 4px; }
+    .brand img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: transparent; padding: 4px; }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a { text-decoration: none; color: #fff; font-weight: 700; font-size: 13px; letter-spacing: .07em; padding: 12px 17px; border-radius: 7px; transition: background .2s; }
+    .nav-links a:hover, .nav-links a.active { background: var(--blue); }
+    .menu-toggle { display: none; color: white; background: transparent; border: 1px solid rgba(255,255,255,.45); border-radius: 8px; padding: 9px 12px; font: inherit; cursor: pointer; }
+    .hero { min-height: 760px; min-height: 100svh; display: grid; place-items: center; padding: 150px 20px 100px; color: #fff; text-align: center; position: relative; isolation: isolate; background: linear-gradient(120deg, rgba(8,17,35,.78), rgba(13,30,62,.66)), var(--hero-image), linear-gradient(135deg,#274b91,#101d35); background-position: center; background-size: cover; }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 50% 45%, transparent 0, rgba(5,13,28,.18) 75%); }
+    .hero-content { max-width: 900px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 700; color: #c6d4ff; margin: 0 0 18px; }
+    h1,h2,h3 { font-family: var(--display); line-height: 1.13; letter-spacing: -.035em; }
+    .hero h1 { font-size: clamp(2.8rem, 7.5vw, 6rem); margin: 0; font-weight: 800; }
+    .hero p { max-width: 760px; margin: 25px auto 0; color: rgba(255,255,255,.91); font-size: clamp(1rem, 1.8vw, 1.22rem); }
+    .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 30px;
+  padding: 14px 23px;
+  border: 0;
+  border-radius: 7px;
+  background: #15317e;
+  color: #ffffff !important;
+  text-decoration: none;
+  font: 700 14px var(--body);
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+    .button:hover {
+  transform: translateY(-2px);
+  background: #4268f5;
+  color: #ffffff !important;
+}
+    .scroll-note { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.72); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+    section { padding: 100px 0; }
+    .section-kicker { color: var(--blue); text-transform: uppercase; letter-spacing: .18em; font-size: 12px; font-weight: 800; margin: 0 0 14px; }
+    .section-title { font-size: clamp(2.15rem, 5vw, 3.65rem); margin: 0 0 22px; font-weight: 800; }
+    .section-lead { color: var(--muted); max-width: 800px; font-size: 1.08rem; }
+    .welcome { background: #fff; text-align: center; }
+    .welcome .section-lead { margin: 0 auto; }
+    .welcome .section-title { max-width: 850px; margin-inline: auto; }
+    .welcome-mark { width: 64px; height: 4px; border-radius: 10px; background: var(--blue); margin: 0 auto 25px; }
+    .about-intro { padding-bottom: 65px; }
+    .achievement { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: start; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 34px; box-shadow: var(--shadow); }
+    .achievement-label { color: var(--blue); font: 800 14px var(--display); text-transform: uppercase; letter-spacing: .12em; }
+    .achievement p { margin: 0; color: var(--muted); }
+    .overview { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 60px; margin-top: 85px; }
+    .overview-copy p { color: var(--muted); }
+    .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .photo-slot { position: relative; min-height: 260px; border-radius: 12px; overflow: hidden; background: linear-gradient(145deg,#e5ebf5,#f8faff); border: none; display: grid; place-items: center; color: #68758b; text-align: center; padding: 20px; }
+    .photo-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; outline: 0; }
+    .photo-slot span { font-size: 13px; font-weight: 700; }
+    .photo-slot small { display: block; font-weight: 400; margin-top: 6px; }
+    .dark-section { background: var(--navy); color: white; }
+    .dark-section .section-kicker { color: #a9bbff; }
+    .dark-section .section-lead { color: #c6d0e2; }
+    .mission-vision { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .info-card { border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.055); border-radius: 14px; padding: 34px; }
+    .info-card .number { display: inline-grid; place-items: center; width: 42px; height: 42px; background: var(--blue); border-radius: 10px; font-weight: 800; margin-bottom: 24px; }
+    .info-card h3 { font-size: 1.55rem; margin: 0 0 14px; }
+    .info-card p { color: #d3dced; margin: 0; }
+    .values-section { background: #fff; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+    .value-card { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 28px; }
+    .value-card .value-no { color: var(--blue); font: 800 13px var(--display); letter-spacing: .1em; }
+    .value-card h3 { font-size: 1.35rem; margin: 12px 0 10px; }
+    .value-card p { color: var(--muted); margin: 0; }
+    .privacy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 38px; }
+    .privacy-card { overflow: hidden; border-radius: 14px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); }
+    .privacy-card .photo-slot { margin: 14px; min-height: 220px; }
+    .privacy-card p { padding: 8px 25px 28px; margin: 0; color: #d3dced; }
+    .commitment { background: #fff; }
+    .commit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 38px; }
+    .commit-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; }
+    .commit-card .photo-slot { min-height: 220px; border: 0; border-radius: 0; border-bottom: none; }
+    .commit-card ul { margin: 0; padding: 25px 28px 28px 45px; }
+    .commit-card li { padding-left: 4px; margin: 0 0 12px; color: var(--muted); }
+    .commit-card li:last-child { margin-bottom: 0; }
+    .contact-section { background: var(--paper); }
+    .contact-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: start; margin-top: 36px; }
+    .contact-form, .contact-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 32px; box-shadow: 0 10px 35px rgba(16,29,53,.05); }
+    .contact-form { display: grid; gap: 17px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    label { display: grid; gap: 7px; color: var(--ink); font-size: 13px; font-weight: 700; }
+    input, textarea, select { width: 100%; border: 1px solid #ccd5e3; border-radius: 7px; padding: 12px 13px; color: var(--ink); background: #fff; font: 400 15px var(--body); }
+    input:focus, textarea:focus, select:focus { outline: 3px solid rgba(66,104,245,.16); border-color: var(--blue); }
+    textarea { min-height: 140px; resize: vertical; }
+    .contact-form .button { margin-top: 3px; justify-self: start; }
+    .form-note { color: var(--muted); font-size: 12px; margin: 0; }
+    .contact-card + .contact-card { margin-top: 18px; }
+    .contact-info-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .contact-info-grid > .contact-card:first-child,
+    .contact-info-grid > .contact-cta { grid-column: 1 / -1; }
+    .map-card { margin-top: 18px; overflow: hidden; padding: 0; }
+    .map-card h3 { padding: 26px 28px 0; }
+    .map-frame { display: block; width: 100%; height: 320px; border: 0; margin-top: 18px; }
+    .map-actions { padding: 0 28px 26px; }
+    .contact-cta { margin-top: 24px; }
+    .contact-cta .button { margin-top: 10px; }
+    .contact-note { color: var(--muted); font-size: 13px; margin: 12px 0 0; }
+    .contact-card h3 { margin: 0 0 12px; font-size: 1.2rem; }
+    .contact-card p, .contact-card a { color: var(--muted); margin: 0; overflow-wrap: anywhere; }
+    .contact-icon { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; color: var(--blue); background: var(--blue-light); margin-bottom: 15px; font-size: 19px; }
+    footer { background: #0b1427; color: #c2ccdd; padding: 26px 0; font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer-inner p { margin: 0; }
+    .footer-inner a { color: #fff; text-decoration: none; }
+    @media (max-width: 850px) {
+      .nav { min-height: 78px; }
+      .brand { width: 150px; flex-basis: 150px; height: 54px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 78px; left: 20px; right: 20px; flex-direction: column; align-items: stretch; background: var(--navy); padding: 12px; border-radius: 10px; box-shadow: var(--shadow); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 15px; }
+      .achievement, .overview, .contact-layout { grid-template-columns: 1fr; }
+      .achievement { gap: 15px; }
+      .overview { gap: 28px; }
+      .commit-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 75px 0; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(100% - 30px, 1120px); }
+      .hero { min-height: 720px; padding-inline: 15px; }
+      .hero h1 { font-size: clamp(2.55rem, 13vw, 4rem); }
+      .photo-grid, .mission-vision, .values-grid, .privacy-grid, .commit-grid, .field-row { grid-template-columns: 1fr; }
+      .photo-slot { min-height: 230px; }
+      .contact-form, .contact-card, .achievement, .info-card { padding: 24px; }
+      .contact-info-grid { grid-template-columns: 1fr; }
+      .contact-info-grid > .contact-card:first-child,
+      .contact-info-grid > .contact-cta { grid-column: auto; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .scroll-note { bottom: 18px; white-space: nowrap; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="EDI ECI Digital Inc. home">
+        <span class="brand-placeholder"><strong>EDI</strong>YOUR LOGO</span>
+        <!-- Add your logo as images/logo.png. The image overlays this placeholder when present. -->
+        <img src="images/logo.png" alt="EDI — ECI Digital Inc. logo" onerror="this.style.display='none'">
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home" class="active">HOME</a>
+        <a href="#about">ABOUT US</a>
+        <a href="#contact">CONTACT US</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-label="Home">
+      <div class="hero-content">
+        <p class="eyebrow">Management · Advisory · Transformation</p>
+        <h1>ECI DIGITAL INC.</h1>
+        <p>EDI (ECI Digital Inc.) is built around the belief that successful outsourcing is not only about completing tasks. It is about building trusted partnerships, developing people, maintaining high standards, and creating measurable value for clients.</p>
+        <a class="button" href="#contact">Contact Us <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="scroll-note">Scroll to discover <span aria-hidden="true">↓</span></div>
+    </section>
+
+    <section class="welcome" id="welcome">
+      <div class="container">
+        <div class="welcome-mark"></div>
+        <p class="section-kicker">A trusted partner for growth</p>
+        <h2 class="section-title">WELCOME TO OUR COMPANY</h2>
+        <p class="section-lead">We are thrilled to partner with you. As a full-service management and advisory firm, our purpose is simple: to empower your business, streamline your operations, and drive your strategic vision forward. Whether you are launching a new enterprise, restructuring an existing entity, or seeking high-level technical guidance, we are here to manage the operational heavy lifting so you can focus on growth.</p>
+      </div>
+    </section>
+
+    <section class="about-intro" id="about">
+      <div class="container">
+        <p class="section-kicker">Who we are</p>
+        <h2 class="section-title">About the Company</h2>
+        <div class="achievement">
+          <div class="achievement-label">Key Achievement</div>
+          <p>ECI Digital Inc. successfully managed, restructured, and provided high-level technical and operational advisory services to diverse corporate entities across various business sectors, driving long-term efficiency, strategic growth, and seamless enterprise transitions through every stage of the business lifecycle.</p>
+        </div>
+        <div class="overview">
+          <div class="overview-copy">
+            <p class="section-kicker">Company Overview</p>
+            <h2 class="section-title">Built for lasting impact.</h2>
+            <p>ECI Digital Inc., established in 2026 at the Ramon Magsaysay Center, Manila, is a corporate management and advisory firm delivering strategic leadership, technical guidance, and operational transformation services.</p>
+          </div>
+          <div class="photo-grid">
+            <figure class="photo-slot">
+              <span>OVERVIEW PHOTO 1<small>Add your image at images/overview-1.jpg</small></span>
+              <img src="images/overview-1.jpg" alt="ECI Digital Inc. company overview photo 1" onerror="this.style.display='none'">
+            </figure>
+            <figure class="photo-slot">
+              <span>OVERVIEW PHOTO 2<small>Add your image at images/overview-2.jpg</small></span>
+              <img src="images/overview-2.jpg" alt="ECI Digital Inc. company overview photo 2" onerror="this.style.display='none'">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="vision-mission">
+      <div class="container">
+        <p class="section-kicker">Our direction</p>
+        <h2 class="section-title">Vision &amp; Mission</h2>
+        <div class="mission-vision">
+          <article class="info-card">
+            <span class="number">01</span>
+            <h3>Our Vision</h3>
+            <p>To be a premier and trusted corporate management and advisory firm, recognized for operational excellence, strategic guidance, and our ability to drive sustainable growth, transformation, and positive impact for our partner enterprises, employees, and communities.</p>
+          </article>
+          <article class="info-card">
+            <span class="number">02</span>
+            <h3>Our Mission</h3>
+            <p>To empower commercial, industrial, and manufacturing enterprises by delivering expert managerial leadership, technical advisory, and seamless lifecycle support—driving operational excellence and corporate growth while upholding the highest standards of governance and integrity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="values-section" id="values">
+      <div class="container">
+        <p class="section-kicker">What guides us</p>
+        <h2 class="section-title">Core Values</h2>
+        <div class="values-grid">
+          <article class="value-card">
+            <span class="value-no">01 / COMMITMENT</span>
+            <h3>Commitment</h3>
+            <p>We give our best in every responsibility and remain dedicated to delivering consistent, high-quality results.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-no">02 / OWNERSHIP</span>
+            <h3>Ownership</h3>
+            <p>We take responsibility for our work, proactively address challenges, and look for solutions rather than excuses.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-no">03 / INTEGRITY</span>
+            <h3>Integrity</h3>
+            <p>We act honestly, ethically, responsibly, and respectfully in every interaction and business decision.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="privacy">
+      <div class="container">
+        <p class="section-kicker">Trust is our foundation</p>
+        <h2 class="section-title">Data Privacy and Confidentiality</h2>
+        <div class="privacy-grid">
+          <article class="privacy-card">
+            <figure class="photo-slot">
+              <span>PRIVACY PHOTO 1<small>Add your image at images/privacy-1.jpg</small></span>
+              <img src="images/privacy-1.jpg" alt="Data privacy and confidentiality" onerror="this.style.display='none'">
+            </figure>
+            <p>We strictly safeguard all client data, corporate records, and proprietary information through robust security protocols and strict non-disclosure practices, ensuring absolute privacy and complete operational discretion.</p>
+          </article>
+          <article class="privacy-card">
+            <figure class="photo-slot">
+              <span>PRIVACY PHOTO 2<small>Add your image at images/privacy-2.jpg</small></span>
+              <img src="images/privacy-2.jpg" alt="Responsible data handling and compliance" onerror="this.style.display='none'">
+            </figure>
+            <p>The company aims to maintain responsible data-handling practices and comply with applicable Philippine data privacy and employment regulations, as well as contractual and client-specific security requirements.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="commitment" id="commitment">
+      <div class="container">
+        <p class="section-kicker">How we work</p>
+        <h2 class="section-title">Our Commitment</h2>
+        <p class="section-lead">We are committed to dependable service, trusted partnerships, and responsible business practices.</p>
+        <div class="commit-grid">
+          <article class="commit-card">
+            <figure class="photo-slot">
+              <span>COMMITMENT PHOTO 1<small>Add your image at images/commit-1.jpg</small></span>
+              <img src="images/commit-1.jpg" alt="Reliable service and trusted relationships" onerror="this.style.display='none'">
+            </figure>
+            <ul>
+              <li>Delivering consistent and reliable service</li>
+              <li>Promoting accountability and ownership</li>
+              <li>Building long-term and trusted client relationships</li>
+            </ul>
+          </article>
+          <article class="commit-card">
+            <figure class="photo-slot">
+              <span>COMMITMENT PHOTO 2<small>Add your image at images/commit-2.jpg</small></span>
+              <img src="images/commit-2.jpg" alt="Client productivity and information protection" onerror="this.style.display='none'">
+            </figure>
+            <ul>
+              <li>Supporting client productivity and business objectives</li>
+              <li>Protecting confidential and sensitive information</li>
+            </ul>
+          </article>
+          <article class="commit-card">
+            <figure class="photo-slot">
+              <span>COMMITMENT PHOTO 3<small>Add your image at images/commit-3.jpg</small></span>
+              <img src="images/commit-3.jpg" alt="Professional development and ethical practices" onerror="this.style.display='none'">
+            </figure>
+            <ul>
+              <li>Encouraging continuous learning and professional development</li>
+              <li>Maintaining professional and ethical business practices</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <p class="section-kicker">Let's connect</p>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-lead">Have an inquiry? Find our location below or click the button to submit your inquiry through our Google Form.</p>
+        <div class="contact-layout">
+          <div class="contact-info-grid">
+            <div class="contact-card">
+              <span class="contact-icon" aria-hidden="true">⌖</span>
+              <h3>Our Location</h3>
+              <p>1680 Roxas Boulevard Corner Quintos Street, Malate, Manila, 1004 Metro Manila, Philippines, Ramon Magsaysay Center 10TH Floor</p>
+            </div>
+            <div class="contact-card">
+              <span class="contact-icon" aria-hidden="true">✉</span>
+              <h3>Email Address</h3>
+              <p><a href="mailto:itsupport2k26@gmail.com">itsupport2k26@gmail.com</a></p>
+            </div>
+            <div class="contact-card">
+              <span class="contact-icon" aria-hidden="true">☎</span>
+              <h3>Contact Number</h3>
+              <p><a href="tel:09204923506">09204923506</a></p>
+            </div>
+            <div class="contact-card contact-cta">
+              <span class="contact-icon" aria-hidden="true">✎</span>
+              <h3>Send an Inquiry</h3>
+              <p>Click below to open our Google Form and send us your inquiry. It’s quick and easy.</p>
+              <!-- Replace the placeholder URL below with your actual Google Form link. -->
+              <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdEY1_tp1LnmVU9wXuc2IgPllC93uvU72_Ow2MImeeVT9YsHw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Go to Inquiry Form ↗</a>
+            
+            </div>
+          </div>
+          <aside class="contact-card map-card">
+            <h3>Find Us on the Map</h3>
+            <p style="padding: 0 28px;">Ramon Magsaysay Center, Manila, Philippines</p>
+            <iframe class="map-frame" title="Map showing Ramon Magsaysay Center in Manila" src="https://maps.google.com/maps?q=Ramon%20Magsaysay%20Center%2C%20Manila%2C%20Philippines&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <div class="map-actions">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Ramon+Magsaysay+Center+Manila+Philippines" target="_blank" rel="noopener noreferrer">View pinpoint location in Google Maps ↗</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> EDI (ECI Digital Inc.). All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navAnchors = [...navLinks.querySelectorAll('a')];
+
+    function updateHeader() {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.textContent = open ? 'Close ✕' : 'Menu ☰';
+    });
+    navAnchors.forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = 'Menu ☰';
+    }));
+
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id === 'welcome' ? 'home' :
+            (['vision-mission','values','privacy','commitment'].includes(entry.target.id) ? 'about' : entry.target.id);
+          navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + sectionId));
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => observer.observe(section));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+
+  </script>
+</body>
+</html>
