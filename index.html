@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EDI | ECI Digital Inc.</title>
-<link rel="icon" type="image/png" href="images/EDI.png">
+<link rel="icon" type="image/png" href="images/logo1.png">
   <meta name="description" content="ECI Digital Inc. is a corporate management and advisory firm delivering strategic leadership, technical guidance, and operational transformation.">
   <meta name="theme-color" content="#101d35">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,7 +49,52 @@
     .hero-content { max-width: 900px; }
     .eyebrow { text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 700; color: #c6d4ff; margin: 0 0 18px; }
     h1,h2,h3 { font-family: var(--display); line-height: 1.13; letter-spacing: -.035em; }
-    .hero h1 { font-size: clamp(2.8rem, 7.5vw, 6rem); margin: 0; font-weight: 800; }
+    .hero h1 { font-family: "Gill Sans Ultra Bold", "Gill Sans", "Arial Black", sans-serif; font-size: clamp(2.8rem, 7.5vw, 6rem); margin: 0; font-weight: 800; }
+    /* Home title: letters converge toward the I in DIGITAL. */
+    .hero-title { display: inline-flex; flex-wrap: wrap; justify-content: center; }
+    .hero-title .title-char {
+      display: inline-block;
+      opacity: 0;
+      animation: title-arrive 1.6s cubic-bezier(.2,.75,.25,1) forwards;
+      animation-delay: var(--delay, 0ms);
+      will-change: transform, opacity;
+    }
+    .hero-title .from-left { transform: translateX(-72px); }
+    .hero-title .from-right { transform: translateX(72px); }
+    .hero-title .center-char { transform: scale(.72); }
+    @keyframes title-arrive {
+      to { opacity: 1; transform: translateX(0) scale(1); }
+    }
+    .hero-eyebrow {
+      opacity: 0;
+      transform: translateY(-34px);
+      animation: reveal-from-top 1.15s cubic-bezier(.2,.75,.25,1) .12s forwards;
+    }
+    .hero-description,
+    .hero .button {
+      opacity: 0;
+      transform: translateY(38px);
+      animation: reveal-from-bottom 1.25s cubic-bezier(.2,.75,.25,1) 1.05s forwards;
+    }
+    @keyframes reveal-from-top {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes reveal-from-bottom {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity 1.1s cubic-bezier(.2,.75,.25,1), transform 1.1s cubic-bezier(.2,.75,.25,1);
+      will-change: opacity, transform;
+    }
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-title .title-char { opacity: 1; transform: none; animation: none; }
+    }
     .hero p { max-width: 760px; margin: 25px auto 0; color: rgba(255,255,255,.91); font-size: clamp(1rem, 1.8vw, 1.22rem); }
     .button {
   display: inline-flex;
@@ -172,7 +217,11 @@
       .footer-inner { flex-direction: column; text-align: center; }
       .scroll-note { bottom: 18px; white-space: nowrap; }
     }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-delay: 0ms !important; }
+      .hero-eyebrow, .hero-description, .hero .button, .scroll-reveal { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -195,9 +244,11 @@
   <main>
     <section class="hero" id="home" aria-label="Home">
       <div class="hero-content">
-        <p class="eyebrow">Management · Advisory · Transformation</p>
-        <h1>ECI DIGITAL INC.</h1>
-        <p>EDI (ECI Digital Inc.) is built around the belief that successful outsourcing is not only about completing tasks. It is about building trusted partnerships, developing people, maintaining high standards, and creating measurable value for clients.</p>
+        <p class="eyebrow hero-eyebrow">Management · Advisory · Transformation</p>
+        <h1 class="hero-title" aria-label="ECI DIGITAL INC.">
+          <span class="title-char from-left" style="--delay:0ms" aria-hidden="true">E</span><span class="title-char from-left" style="--delay:80ms" aria-hidden="true">C</span><span class="title-char from-left" style="--delay:160ms" aria-hidden="true">I</span><span class="title-char from-left" style="--delay:240ms" aria-hidden="true">&nbsp;</span><span class="title-char from-left" style="--delay:320ms" aria-hidden="true">D</span><span class="title-char from-left" style="--delay:400ms" aria-hidden="true">I</span><span class="title-char from-left" style="--delay:480ms" aria-hidden="true">G</span><span class="title-char center-char" style="--delay:560ms" aria-hidden="true">I</span><span class="title-char from-right" style="--delay:480ms" aria-hidden="true">T</span><span class="title-char from-right" style="--delay:400ms" aria-hidden="true">A</span><span class="title-char from-right" style="--delay:320ms" aria-hidden="true">L</span><span class="title-char from-right" style="--delay:240ms" aria-hidden="true">&nbsp;</span><span class="title-char from-right" style="--delay:160ms" aria-hidden="true">I</span><span class="title-char from-right" style="--delay:80ms" aria-hidden="true">N</span><span class="title-char from-right" style="--delay:0ms" aria-hidden="true">C.</span>
+        </h1>
+        <p class="hero-description">EDI (ECI Digital Inc.) is built around the belief that successful outsourcing is not only about completing tasks. It is about building trusted partnerships, developing people, maintaining high standards, and creating measurable value for clients.</p>
         <a class="button" href="#contact">Contact Us <span aria-hidden="true">↗</span></a>
       </div>
       <div class="scroll-note">Scroll to discover <span aria-hidden="true">↓</span></div>
@@ -207,7 +258,7 @@
       <div class="container">
         <div class="welcome-mark"></div>
         <p class="section-kicker">A trusted partner for growth</p>
-        <h2 class="section-title">WELCOME TO OUR COMPANY</h2>
+        <h2 class="section-title scroll-reveal">WELCOME TO OUR COMPANY</h2>
         <p class="section-lead">We are thrilled to partner with you. As a full-service management and advisory firm, our purpose is simple: to empower your business, streamline your operations, and drive your strategic vision forward. Whether you are launching a new enterprise, restructuring an existing entity, or seeking high-level technical guidance, we are here to manage the operational heavy lifting so you can focus on growth.</p>
       </div>
     </section>
@@ -215,7 +266,7 @@
     <section class="about-intro" id="about">
       <div class="container">
         <p class="section-kicker">Who we are</p>
-        <h2 class="section-title">About the Company</h2>
+        <h2 class="section-title scroll-reveal">About the Company</h2>
         <div class="achievement">
           <div class="achievement-label">Key Achievement</div>
           <p>ECI Digital Inc. successfully managed, restructured, and provided high-level technical and operational advisory services to diverse corporate entities across various business sectors, driving long-term efficiency, strategic growth, and seamless enterprise transitions through every stage of the business lifecycle.</p>
@@ -223,7 +274,7 @@
         <div class="overview">
           <div class="overview-copy">
             <p class="section-kicker">Company Overview</p>
-            <h2 class="section-title">Built for lasting impact.</h2>
+            <h2 class="section-title scroll-reveal">Built for lasting impact.</h2>
             <p>ECI Digital Inc., established in 2026 at the Ramon Magsaysay Center, Manila, is a corporate management and advisory firm delivering strategic leadership, technical guidance, and operational transformation services.</p>
           </div>
           <div class="photo-grid">
@@ -243,7 +294,7 @@
     <section class="dark-section" id="vision-mission">
       <div class="container">
         <p class="section-kicker">Our direction</p>
-        <h2 class="section-title">Vision &amp; Mission</h2>
+        <h2 class="section-title scroll-reveal">Vision &amp; Mission</h2>
         <div class="mission-vision">
           <article class="info-card">
             <span class="number">01</span>
@@ -262,7 +313,7 @@
     <section class="values-section" id="values">
       <div class="container">
         <p class="section-kicker">What guides us</p>
-        <h2 class="section-title">Core Values</h2>
+        <h2 class="section-title scroll-reveal">Core Values</h2>
         <div class="values-grid">
           <article class="value-card">
             <span class="value-no">01 / COMMITMENT</span>
@@ -286,7 +337,7 @@
     <section class="dark-section" id="privacy">
       <div class="container">
         <p class="section-kicker">Trust is our foundation</p>
-        <h2 class="section-title">Data Privacy and Confidentiality</h2>
+        <h2 class="section-title scroll-reveal">Data Privacy and Confidentiality</h2>
         <div class="privacy-grid">
           <article class="privacy-card">
             <figure class="photo-slot">
@@ -309,7 +360,7 @@
     <section class="commitment" id="commitment">
       <div class="container">
         <p class="section-kicker">How we work</p>
-        <h2 class="section-title">Our Commitment</h2>
+        <h2 class="section-title scroll-reveal">Our Commitment</h2>
         <p class="section-lead">We are committed to dependable service, trusted partnerships, and responsible business practices.</p>
         <div class="commit-grid">
           <article class="commit-card">
@@ -350,7 +401,7 @@
     <section class="contact-section" id="contact">
       <div class="container">
         <p class="section-kicker">Let's connect</p>
-        <h2 class="section-title">Contact Us</h2>
+        <h2 class="section-title scroll-reveal">Contact Us</h2>
         <p class="section-lead">Have an inquiry? Find our location below or click the button to submit your inquiry through our Google Form.</p>
         <div class="contact-layout">
           <div class="contact-info-grid">
@@ -432,6 +483,20 @@
       });
     }, { rootMargin: '-35% 0px -55% 0px' });
     sections.forEach(section => observer.observe(section));
+
+    // Reveal the requested section headings as they enter the viewport.
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    document.querySelectorAll('.scroll-reveal').forEach(element => {
+      revealObserver.observe(element);
+    });
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
