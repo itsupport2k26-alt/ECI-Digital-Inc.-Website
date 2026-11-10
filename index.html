@@ -55,7 +55,16 @@
       object-position: center;
       pointer-events: none;
     }
-    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 50% 45%, transparent 0, rgba(5,13,28,.18) 75%); }
+    /* Dark overlay above the background video to keep the HOME page text readable. */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(rgba(5,13,28,.55), rgba(5,13,28,.55)),
+        radial-gradient(ellipse at 50% 45%, transparent 0, rgba(5,13,28,.18) 75%);
+    }
     .hero-content { max-width: 900px; }
     .eyebrow { text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 700; color: #c6d4ff; margin: 0 0 18px; }
     h1,h2,h3 { font-family: var(--display); line-height: 1.13; letter-spacing: -.035em; }
