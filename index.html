@@ -34,9 +34,9 @@
     a { color: inherit; }
     .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
     .site-header { position: fixed; z-index: 100; inset: 0 0 auto; color: white; transition: background .25s, box-shadow .25s; }
-    .site-header.scrolled { background: rgba(16,29,53,.97); box-shadow: 0 8px 30px rgba(0,0,0,.12); backdrop-filter: blur(12px); }
+    .site-header.scrolled { background: rgba(24, 55, 112, 0.97); box-shadow: 0 8px 30px rgba(0,0,0,.12); backdrop-filter: blur(12px); }
     .nav { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { width: 178px; height: 60px; flex: 0 0 178px; position: relative; display: flex; align-items: center; justify-content: center; border: none; border-radius: 0; overflow: hidden; text-decoration: none; }
+    .brand { width: 178px; height: 60px; flex: 0 0 178px; position: relative; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255,255,255,.95); border-radius: 10px; background: rgba(255,255,255,.08); box-shadow: 0 2px 10px rgba(0,0,0,.35); overflow: hidden; text-decoration: none; }
     .brand-placeholder { text-align: center; font-size: 12px; line-height: 1.25; letter-spacing: .1em; font-weight: 700; }
     .brand-placeholder strong { display: block; font: 800 23px/1 var(--display); letter-spacing: .08em; margin-bottom: 4px; }
     .brand img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: transparent; padding: 4px; }
@@ -178,6 +178,8 @@
     .commit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 38px; }
     .commit-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; }
     .commit-card .photo-slot { min-height: 220px; border: 0; border-radius: 0; border-bottom: none; }
+    /* Slightly shift the commitment photos upward to show more of the top of each image. */
+    .commit-card .photo-slot img { object-position: center 15%; }
     .commit-card ul { margin: 0; padding: 25px 28px 28px 45px; }
     .commit-card li { padding-left: 4px; margin: 0 0 12px; color: var(--muted); }
     .commit-card li:last-child { margin-bottom: 0; }
